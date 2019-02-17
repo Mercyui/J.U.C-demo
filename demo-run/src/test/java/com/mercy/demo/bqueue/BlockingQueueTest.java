@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
@@ -18,6 +19,7 @@ public class BlockingQueueTest {
      * </p>
      */
     @Test
+    @CrossOrigin
     public void implBlockingQueue1() throws InterruptedException {
         MyBlockingQueue queue = new MyBlockingQueue(3);
         Thread t1 = new Thread(() -> {
@@ -41,7 +43,8 @@ public class BlockingQueueTest {
         t1.start();
         t2.start();
         t3.start();
-        Thread.sleep(5000);
+
+        // Thread.sleep(5000);
     }
 
     @Test
